@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('dotenv').config();
+var session = require('express-session')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -26,6 +27,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'keyboard cat'
+}))
 
 app.use('/', index);
 app.use('/users', users);

@@ -4,13 +4,12 @@ const user = require('../controllers/user');
 const middleware = require('../helpers/middleware.js');
 const jwt = require('express-jwt');
 
+
 router.get('/', (req, res) => {
   res.render('pages/index', {title: 'Superfox'})
 });
 
-router.get('/profile', (req,res) => {
-  res.render('pages/profile', {title: 'Your Profile'})
-});
+router.get('/profile', user.profileSuperHero);
 
 /* localhost:3000/api/signup | register new user  */
 router.post('/api/signup', user.registerUser);

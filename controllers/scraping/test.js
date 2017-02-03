@@ -14,7 +14,7 @@ let scrap = {
     })
     .then(function ($) {
       heroes.push({profPic: $('.character-image').attr('src'), mainPic: $('.featuredImage img').attr('src'), power: $('.possibleTruncation span').html()})
-      console.log(heroes);
+      // console.log(heroes);
       return heroes
     })
     .catch(function (err) {
