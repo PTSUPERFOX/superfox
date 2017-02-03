@@ -4,7 +4,7 @@ const superhero = require('../superhero')
 let heroes = []
 
 let scrap = {
-  getHero: function (url) {
+  getHero: function (url, cb) {
     request(url)
     .then(function (html) {
       return html
@@ -15,7 +15,7 @@ let scrap = {
     .then(function ($) {
       heroes.push({profPic: $('.character-image').attr('src'), mainPic: $('.featuredImage img').attr('src'), power: $('.possibleTruncation span').html()})
       // console.log(heroes);
-      return heroes
+      cb(heroes)
     })
     .catch(function (err) {
       console.log(err)
