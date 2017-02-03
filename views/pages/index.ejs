@@ -1,25 +1,89 @@
 <% include ../partials/header %>
-<div class="container">
+<div class="container" style="font-family:'kalam'; font-size:22px">
 <div class="row">
-    <div class="col-sm-6 col-md-4 col-md-offset-4">
-        <h1 class="text-center login-title">Sign in to continue to Bootsnipp</h1>
+    <div class="col-sm-8 col-md-6 col-md-offset-3" style="margin-top:10%">
+        <h1 class="text-center login-title" style="color:black; font-size:36px; font-family:'Permanent Marker';">Sign in to get your superhero Character!</h1>
         <div class="account-wall">
             <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                 alt="">
-            <form class="form-signin">
-            <input type="text" class="form-control" placeholder="Email" required autofocus>
-            <input type="password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                Sign in</button>
-            <label class="checkbox pull-left">
-                <input type="checkbox" value="remember-me">
-                Remember me
-            </label>
-            <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+            <form action="/api/login" class="form-signin" method="post">
+              <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+              <input type="password" class="form-control" name="password" placeholder="Password" required>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
         </div>
-        <a href="#" class="text-center new-account">Create an account </a>
+        <div class="text-center" style="margin-top:20px;">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Register Here!</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel" style="font-family:'bangers'">Register your account!</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/api/signup" method="post">
+              <div class="form-group">
+                <label for="username" class="form-control-label">Username:</label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+              </div>
+              <div class="form-group">
+                <label for="password" class="form-control-label">Password:</label>
+                <input type="password" name="password" class="form-control" placeholder="Password" id="password" required>
+              </div>
+              <div class="form-group" style="margin-top:35px;">
+                <label for="hobbies" class="form-control-label" style="display:block">Pick your hobbies:</label>
+                <div style="margin-left: 22%; margin-top:20px; display:inline-block;">
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="1">Option 1</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="2">Option 2</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="3">Option 3</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="4">Option 3</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="5">Option 3</label>
+                  </div>
+                </div>
+                <div style="margin-left: 15%; display:inline-block;">
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="6">Option 6</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="7">Option 7</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="8">Option 8</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="9">Option 9</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="hobbies" value="10">Option 10</label>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+            </form>
+        </div>
+      </div>
     </div>
 </div>
 </div>
-<% include ../partials/footer %>
+</body>
+
+</html>

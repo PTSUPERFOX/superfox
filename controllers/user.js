@@ -7,19 +7,19 @@ var objUser = {
     // create a new user
     var newUser = modelUser({
       username: req.body.username,
-      password: passwordHash.generate(req.body.password)
-      hobbies: req.body.hobbies
+      password: passwordHash.generate(req.body.password),
+      hobbies:  req.body.hobbies
     });
     // save the user
     newUser.save(function(err, data) {
       if (err) throw err;
-      res.redirect('/login');
+      res.redirect('/');
     });
 
   },
   /* generate token */
   loginUser: function(req, res){
-
+    // redirect home
   },
   /* get superhero profile */
   profileSuperHero: function(req, res){
