@@ -20,5 +20,25 @@
     "nodemon": "^1.11.0",
     "password-hash": "^1.2.2",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "description": "## Description",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PTSUPERFOX/superfox.git"
+  },
+  "keywords": [
+    "Superhero",
+    "hacktiv8",
+    "week5",
+    "onedayproject",
+    "marvel"
+  ],
+  "author": "Alex, Dgana, Fadly, and Syanmil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PTSUPERFOX/superfox/issues"
+  },
+  "homepage": "https://github.com/PTSUPERFOX/superfox#readme"
 }
