@@ -13,7 +13,7 @@ let scrap = {
       return cheerio.load(html)
     })
     .then(function ($) {
-      heroes.push({profPic: $('.character-image').attr('src'), mainPic: $('.featuredImage img').attr('src'), power: $('.possibleTruncation span').html()})
+      heroes.push({profPic: $('.character-image').attr('src'), mainPic: $('.featuredImage img').attr('src'), power: $('.possibleTruncation span').html(), desc: $('.featured-item-desc')[0].children[3].children[0].data.trim()})
       // console.log(heroes);
       cb(heroes)
     })
@@ -30,3 +30,6 @@ module.exports = scrap
 //   console.log(url);
 //   scrap.getHero(url)
 // });
+
+// <% if(!data.mainPic){data.profPic}else{null} %>
+// background:url(<%= data.mainPic %>) no-repeat center; background-size: cover;

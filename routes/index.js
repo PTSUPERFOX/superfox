@@ -22,7 +22,8 @@ router.get('/api/superhero', user.profileSuperHero);
 router.get('/api/home', user.profileSuperHero);
 
 router.get('/logout', (req,res) => {
-  req.session.destroy();
+  req.session.username = '';
+  req.session.hobbies = '';
   res.redirect('/')
 });
 

@@ -4,21 +4,26 @@
     <div class="panel panel-primary" style="margin-top:10%;" id="mainpic">
       <div class="panel-heading" style="font-size:40px; font-family:'bangers'; height:75px; padding:18px; color:rgb(239, 239, 239)"><b style="color:rgba(0,0,0,0.8)"><%= user %></b>&nbsp Superhero Character!</div>
       <div class="panel-body" style="margin-top:20px;">
-        <div class="col-xs-12" style="background-color: rgba(255,255,255,0.5); border-radius:15px; padding:15px; margin-right:10px;">
-          <div class="col-xs-2">
-            <img src="<%= data.profPic %>" width="100%" style="border-radius:10%;" alt="">
-          </div>
-          <div class="col-xs-10">
-            <h2 class="status-p">Name: </h2><p><%= name %></p>
-            <h2 class="status-p">Description: </h2><p><% if(desc === '') { %>
+        <div class="col-xs-2" style="background-color: rgba(255,255,255,0.5); border-radius:15px; padding:15px; margin-right:10px;">
+          <p class="status-p">Name: </p>
+          <p class="status-p">Description: </p>
+          <p class="status-p">Power: </p>
+        </div>
+        <div class="col-xs-4" style="background-color: rgba(255,255,255,0.5); border-radius:15px; padding:15px;">
+          <p class="status-p2"><%= name %></p>
+          <p class="status-p2">
+            <% if(desc === '') { %>
               No Description
             <% } else if(desc) { %>
               <%= desc %>
             <% } else { %>
               <%= description %>
-            <% } %></p>
-            <h2 class="status-p">Power: </h2><p><%= data.power %></p>
-          </div>
+            <% } %>
+          </p>
+          <p><%= data.power %></p>
+        </div>
+        <div class="col-xs-5">
+          <img src="<%= data.profPic %>" width="100%" style="border-radius:10%;" alt="">
         </div>
       </div>
       <div class="panel-footer" style="background-color:rgb(77, 129, 214); padding:16px;">

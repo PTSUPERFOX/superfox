@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 
 /* configure database target */
 mongoose.connect('mongodb://localhost/'+process.env.DB_HOST);
+mongoose.Promise = global.Promise
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -28,10 +29,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.set('trust proxy', 1)
 app.use(session({
-  secret: 'keyboard cat'
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
 }))
-
 app.use('/', index);
 app.use('/users', users);
 

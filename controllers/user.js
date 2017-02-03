@@ -34,7 +34,6 @@ var objUser = {
     modelUser.findOne({username : req.body.username || req.session.username}, function(err, data){
       req.session.username = data.username
       req.session.hobbies = data.hobbies
-      console.log(req.session);
       res.redirect('/profile');
     })
 
@@ -42,11 +41,8 @@ var objUser = {
   /* get superhero profile */
   profileSuperHero: function(req, res){
     superhero.getHeroData(req.session.username, req.session.hobbies, function(hero) {
-      let url = hero.urls[0].url
-      console.log("HEROO " + JSON.stringify(hero));
-      scrap.getHero(url, function(foto){
-        console.log("DATAAAAA " + JSON.stringify(foto[0]));
-        res.render('pages/profile', {title: "Profile", data: foto[0], name: hero.name, description: hero.description});
+      scrap.getHero(hero.urls[0].url, function(marvel){
+        res.render('pages/profile', {title: "Profile", user: req.session.username, data: marvel[0], name: hero.name, description: hero.description, desc: marvel[0].desc});
       })
     })
   },

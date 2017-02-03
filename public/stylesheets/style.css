@@ -100,8 +100,9 @@ body {
 }
 
 .status-p {
-  margin-bottom: 18%;
-  font-size: 22px;
+  margin-bottom: 3%;
+  font-size: 38px;
+  font-family:"bangers"; 
 }
 
 .status-p2 {
