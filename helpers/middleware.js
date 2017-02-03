@@ -7,11 +7,15 @@ var middleware = {
     console.log("isUser | is user in database");
     console.log(req.body.username);
     console.log(req.body.password);
-    modelUser.find({ username: req.body.username },{ password }, function(err, user) {
+    modelUser.findOne({ username: req.body.username }, function(err, user) {
       /* err handler */
       if (err) res.send({msg: "is user err"});
       let hashedPassword = user.password;
-      if ( passwordHash.verify(req.body.password, hashedPassword) ) ? next() : res.send({msg: "username tidak ada"});
+      if ( passwordHash.verify(req.body.password, hashedPassword) ){
+        next()
+      } else {
+        res.send({msg: "username tidak ada"});
+      }
     });
   }
 }
