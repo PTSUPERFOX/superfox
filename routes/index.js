@@ -1,15 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const user = require('../controllers/user');
 const middleware = require('../helpers/middleware.js');
+const jwt = require('express-jwt');
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
   res.render('pages/index', {title: 'Superfox'})
 });
 
-router.get('/profile', (req,res) => {
-  res.render('pages/profile', {title: 'Profile'})
-});
+// router.get('/profile', (req,res) => {
+//   // res.render('pages/profile', {token: req.user})
+//   res.send({token: req.user})
+// });
 
 /* localhost:3000/api/signup | register new user  */
 router.post('/api/signup', user.registerUser);

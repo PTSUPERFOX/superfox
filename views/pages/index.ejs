@@ -6,9 +6,9 @@
         <div class="account-wall">
             <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                 alt="">
-            <form action="/api/login" class="form-signin" method="post">
-              <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
-              <input type="password" class="form-control" name="password" placeholder="Password" required>
+            <form id="form-signin" action="/api/login" class="form-signin" method="post">
+              <input id="username" type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+              <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
         </div>
@@ -56,7 +56,7 @@
                     <label><input type="checkbox" name="hobbies" value="5">Option 3</label>
                   </div>
                 </div>
-                <div style="margin-left: 15%; display:inline-block;">
+                <div style="margin-left: 15%; display:inline-b lock;">
                   <div class="checkbox">
                     <label><input type="checkbox" name="hobbies" value="6">Option 6</label>
                   </div>
@@ -84,6 +84,7 @@
     </div>
 </div>
 </div>
+
 </body>
 
 </html>

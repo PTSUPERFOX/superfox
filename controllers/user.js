@@ -1,5 +1,6 @@
 var passwordHash = require('password-hash');
 const modelUser = require('../models/model.user');
+var jwt = require('jsonwebtoken');
 
 var objUser = {
   /* register new user */
@@ -19,7 +20,19 @@ var objUser = {
   },
   /* generate token */
   loginUser: function(req, res){
-    // redirect home
+    console.log("masuk login user");
+    console.log(req.body.username);
+    console.log(req.body.password);
+
+    var encoded = jwt.sign({
+      username: req.body.username,
+      password: req.body.password
+    }, process.env.SECRET, { expiresIn: '1h' });
+
+    req.user = encoded
+    // redirect to their profile
+    res.render('pages/profile', {token: req.user})
+    // ambil data hasil kalkulasi hobi dari mongodb, render di sini
   },
   /* get superhero profile */
   profileSuperHero: function(req, res){

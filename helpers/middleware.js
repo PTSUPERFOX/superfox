@@ -17,6 +17,11 @@ var middleware = {
         res.send({msg: "username tidak ada"});
       }
     });
+  },
+
+  checkToken: function(req, res, next) {
+    console.log('req.user:', req.user)
+    next()
   }
 }
 
