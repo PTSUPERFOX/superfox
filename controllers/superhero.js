@@ -1,6 +1,12 @@
 'use strict'
-
+var api = require('marvel-api');
+var config = require('../config/auth.js')
 //1485
+
+var marvel = api.createClient({
+  publicKey: config.marvel.publicKey
+, privateKey: config.marvel.privateKey
+});
 
 let superhero = {
   convertArray: function(arrayData){
@@ -23,12 +29,24 @@ let superhero = {
       raw /= 9
     }
     return Math.floor(raw)
+  },
+  getHeroData: function(username, arrayHobi){
+    let id = superhero.getHeroId(username, arrayHobi)
+    marvel.characters.findAll(1, id)
+    .then(function(hero){
+      let result = {
+        name: hero.data[0].name,
+        description: hero.data[0].description,
+        urls: hero.data[0].urls
+      }
+      return result;
+    })
   }
 }
 
 module.export = superhero
 
-console.log(superhero.getHeroId('Syanmil', [1,2,6,7,8,9,10] ));
-console.log(superhero.getHeroId('Alex', [1,2,3,4,5,6,10] ));
-console.log(superhero.getHeroId('Fadly', [9,10] ));
-console.log(superhero.getHeroId('Dgana', [1,2,5,6,7,10] ));
+superhero.getHeroData('Syanmil', [1,2,6,7,8,9,10]);
+superhero.getHeroData('Alex', [1,2,3,4,5,6,10] );
+superhero.getHeroData('Fadly', [9,10] );
+superhero.getHeroData('Dgana', [1,2,5,6,7,10] );
