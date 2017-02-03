@@ -8,10 +8,9 @@ router.get('/', (req, res) => {
   res.render('pages/index', {title: 'Superfox'})
 });
 
-// router.get('/profile', (req,res) => {
-//   // res.render('pages/profile', {token: req.user})
-//   res.send({token: req.user})
-// });
+router.get('/profile', (req,res) => {
+  res.render('pages/profile', {title: 'Your Profile'})
+});
 
 /* localhost:3000/api/signup | register new user  */
 router.post('/api/signup', user.registerUser);
