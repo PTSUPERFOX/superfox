@@ -2,6 +2,8 @@
 var api = require('marvel-api');
 var config = require('../config/auth.js')
 //1485
+//'ddb4f2e174ebf61e4f528bc2d26ad849'
+//'fca2018222749128385f1b54555bb7b54a61f322'
 
 var marvel = api.createClient({
   publicKey: config.marvel.publicKey
