@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('pages/index', { title: 'Superfox' });
 });
 
+router.post('/register', function(req, res, next) {
+  console.log(req.body.username, req.body.password, req.body.hobbies);
+});
+
 module.exports = router;
