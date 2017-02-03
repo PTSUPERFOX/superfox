@@ -1,10 +1,18 @@
 var express = require('express');
 var router = express.Router();
+const user = require('../controllers/user');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'Superfox' });
-});
+
+/* localhost:3000/api/signup | register new user  */
+router.post('/api/signup', user.registerUser);
+/* localhost:3000/api/login | login user */
+router.post('/api/login', user.loginUser);
+/* localhost:3000/api/superhero | get profile super hero*/
+router.get('/api/superhero', user.profileSuperHero);
+/* localhost:3000/api/home | go to home page */
+router.get('/api/home', user.profileSuperHero);
+
+
 
 router.post('/register', function(req, res, next) {
   console.log(req.body.username, req.body.password, req.body.hobbies);
