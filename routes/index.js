@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
 });
 
 router.get('/profile', (req,res) => {
-  res.render('pages/profile', {title: 'Profile'})
+  res.render('pages/profile', {title: 'Your Profile'})
 });
 
 /* localhost:3000/api/signup | register new user  */
