@@ -1,3 +1,5 @@
+config/auth.js
+
 # Logs
 logs
 *.log
