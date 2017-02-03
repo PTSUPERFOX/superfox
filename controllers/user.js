@@ -3,7 +3,7 @@ const modelUser = require('../models/model.user');
 
 var objUser = {
   /* register new user */
-  registerUser: function(req, res, next){
+  registerUser: function(req, res){
     // create a new user
     var newUser = modelUser({
       username: req.body.username,
@@ -15,6 +15,18 @@ var objUser = {
       if (err) throw err;
       res.redirect('/login');
     });
+
+  },
+  /* generate token */
+  loginUser: function(req, res){
+
+  },
+  /* get superhero profile */
+  profileSuperHero: function(req, res){
+
+  },
+  /* get home page */
+  home: function(req, res){
 
   }
 }
