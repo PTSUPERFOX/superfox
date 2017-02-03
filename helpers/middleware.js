@@ -4,9 +4,6 @@ const modelUser = require('../models/model.user');
 var middleware = {
   /* isUser | function to check that user name that have been input exist in database */
   isUser: function(req, res, next){
-    console.log("isUser | is user in database");
-    console.log(req.body.username);
-    console.log(req.body.password);
     modelUser.findOne({ username: req.body.username }, function(err, user) {
       /* err handler */
       if (err) res.send({msg: "is user err"});
@@ -20,7 +17,6 @@ var middleware = {
   },
 
   checkToken: function(req, res, next) {
-    console.log('req.user:', req.user)
     next()
   }
 }

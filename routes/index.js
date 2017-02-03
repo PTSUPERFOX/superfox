@@ -6,7 +6,6 @@ const jwt = require('express-jwt');
 
 
 router.get('/', (req, res) => {
-  console.log(req.session);
   res.render('pages/index', {title: 'Superfox'})
 });
 
@@ -22,8 +21,7 @@ router.get('/api/superhero', user.profileSuperHero);
 router.get('/api/home', user.profileSuperHero);
 
 router.get('/logout', (req,res) => {
-  req.session.username = '';
-  req.session.hobbies = '';
+  req.session.destroy();
   res.redirect('/')
 });
 

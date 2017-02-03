@@ -41,7 +41,8 @@ var objUser = {
   /* get superhero profile */
   profileSuperHero: function(req, res){
     superhero.getHeroData(req.session.username, req.session.hobbies, function(hero) {
-      scrap.getHero(hero.urls[0].url, function(marvel){
+      let url = hero.urls[0].url
+      scrap.getHero(url, function(marvel){
         res.render('pages/profile', {title: "Profile", user: req.session.username, data: marvel[0], name: hero.name, description: hero.description, desc: marvel[0].desc});
       })
     })
