@@ -7,11 +7,12 @@ var middleware = {
     modelUser.findOne({ username: req.body.username }, function(err, user) {
       /* err handler */
       if (err) res.send({msg: "is user err"});
+      if (!user) res.send({msg: 'user not found'})
       let hashedPassword = user.password;
       if ( passwordHash.verify(req.body.password, hashedPassword) ){
         next()
       } else {
-        res.send({msg: "username tidak ada"});
+        res.send({msg: "wrong password"});
       }
     });
   },
