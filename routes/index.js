@@ -6,6 +6,7 @@ const jwt = require('express-jwt');
 
 
 router.get('/', (req, res) => {
+  console.log(req.session);
   res.render('pages/index', {title: 'Superfox'})
 });
 
@@ -19,5 +20,10 @@ router.post('/api/login', middleware.isUser, user.loginUser);
 router.get('/api/superhero', user.profileSuperHero);
 /* localhost:3000/api/home | go to home page */
 router.get('/api/home', user.profileSuperHero);
+
+router.get('/logout', (req,res) => {
+  req.session.destroy();
+  res.redirect('/')
+});
 
 module.exports = router;

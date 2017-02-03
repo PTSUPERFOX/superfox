@@ -4,29 +4,30 @@
     <div class="panel panel-primary" style="margin-top:10%;">
       <div class="panel-heading" style="font-size:40px; font-family:'bangers'; height:75px; padding:18px; color:rgb(239, 239, 239)">Your Superhero Character!</div>
       <div class="panel-body" style="margin-top:20px;">
-        <div class="col-md-2">
+        <div class="col-xs-2">
           <p class="status-p">Name: </p>
           <p class="status-p">Description: </p>
           <p class="status-p">Power: </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4">
           <p class="status-p2"><%= name %></p>
-          <p class="status-p2"><%= description %></p>
-          <ul style="margin-left:-5%">
-            <li>Power 1</li>
-            <li>Power 2</li>
-            <li>Power 3</li>
-            <li>Power 4</li>
-            <li>Power 5</li>
-          </ul>
+          <p class="status-p2">
+            <% if(description === '') { %>
+              No Description
+            <% } else { %>
+              <%= description %>
+            <% } %>
+          </p>
+          <p><%= data.power %></p>
         </div>
-        <div class="col-md-6">
-          <img src="img/spiderman.jpg" width="100%" style="border-radius:10%;" alt="">
+        <div class="col-xs-6">
+          <img src="<%= data.profPic %>" width="100%" style="border-radius:10%;" alt="">
         </div>
       </div>
       <div class="panel-footer" style="background-color:rgb(77, 129, 214); padding:16px;">
-        <button type="button" class="btn btn-danger btn-lg" name="button" style="margin-left:7px;">Mission</button>
+        <button type="button" class="btn btn-info btn-lg" name="button" style="margin-left:7px;">Mission</button>
         <button type="button" class="btn btn-warning btn-lg" name="button" style="margin-left:7px;">Arsenal</button>
+        <a href="/logout" class="btn btn-danger btn-lg">Logout</a>
       </div>
     </div>
   </div>
