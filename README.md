@@ -19,5 +19,5 @@ npm run dev
 | localhost:3000/api/login     | POST | Authenticate username and password          |
 | localhost:3000/api/signup    | POST | Create new user                             |
 | localhost:3000/api/users/:id | GET  | Get user profile                            |
-| localhost:3000/api/home      | GET  | Get SuperFox home organization               |
+| localhost:3000/api/home      | GET  | Get SuperFox home organization              |
 |                              |      |                                             |
