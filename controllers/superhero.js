@@ -30,7 +30,7 @@ let superhero = {
     }
     return Math.floor(raw)
   },
-  getHeroData: function(username, arrayHobi){
+  getHeroData: function(username, arrayHobi, cb){
     let id = superhero.getHeroId(username, arrayHobi)
     marvel.characters.findAll(1, id)
     .then(function(hero){
@@ -39,14 +39,14 @@ let superhero = {
         description: hero.data[0].description,
         urls: hero.data[0].urls
       }
-      return result;
+      cb(result);
     })
   }
 }
 
-module.export = superhero
+module.exports = superhero
 
-superhero.getHeroData('Syanmil', [1,2,6,7,8,9,10]);
-superhero.getHeroData('Alex', [1,2,3,4,5,6,10] );
-superhero.getHeroData('Fadly', [9,10] );
-superhero.getHeroData('Dgana', [1,2,5,6,7,10] );
+// superhero.getHeroData('Syanmil', [1,2,6,7,8,9,10] ,function(data){console.log(data)});
+// superhero.getHeroData('Alex', [1,2,3,4,5,6,10] ,function(data){console.log(data)});
+// superhero.getHeroData('Fadly', [9,10] ,function(data){console.log(data)});
+// superhero.getHeroData('Dgana', [1,2,5,6,7,10], function(data){console.log(data)});
